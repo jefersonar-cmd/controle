@@ -1,6 +1,6 @@
 <?php
 
-$server = '192.168.15.5';
+$server = 'localhost';
 $user = 'root';
 $pass = 'root';
 $db = 'controle';
