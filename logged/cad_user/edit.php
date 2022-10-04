@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 include '../../db/conn.php';
 if($_POST['user'] and $_POST['email'] and $_POST['acess']){
     $login = $_POST['user'];
