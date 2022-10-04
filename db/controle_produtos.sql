@@ -38,7 +38,7 @@ CREATE TABLE `produtos` (
 
 LOCK TABLES `produtos` WRITE;
 /*!40000 ALTER TABLE `produtos` DISABLE KEYS */;
-INSERT INTO `produtos` VALUES (1,'Viga',15,'150.00','Preço varia de acordo com o tamanho.');
+INSERT INTO `produtos` VALUES (1,'RX 550 Series',15,'150.00','Preço varia de acordo com o tamanho.');
 /*!40000 ALTER TABLE `produtos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
