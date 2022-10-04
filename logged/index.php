@@ -61,7 +61,7 @@ if (!empty($_SESSION['msg'])){
                     require 'cadastro.php';
                     break;
                 case 'perfil':
-                    echo 'aqui será perfil';
+                    require 'perfil.php';
                     break;
                 case 'prod':
                     require 'produtos.php';

@@ -139,7 +139,7 @@ include '../db/conn.php';
         <h5 class="modal-title" id="exampleModalLabel">Excluir Usuário</h5>
       </div>
       <div class="modal-body">
-        <h1>Deseja realmente excluir esse pobre coitado: <?php echo $obj->user_name; ?>?</h1>
+        <h1>Deseja realmente excluir esse pobre coitado chamado <?php echo $obj->user_name; ?>?</h1>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-success material-icons" data-bs-dismiss="modal">close</button>

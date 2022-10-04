@@ -24,14 +24,16 @@ include '../db/conn.php';
                 while($obj = $select->fetch_object()){
                   $preco = str_replace('.', ',', $obj->preco_prod);
                   ?>
-                  <th><?php echo $obj->id_prod; ?></th>
-                  <th><?php echo $obj->nome_prod; ?></th>
-                  <td><?php echo $obj->qtd_prod; ?></td>
-                  <td><a href="" class="material-icons" data-bs-toggle="modal" data-bs-target="#visibility<?php echo $obj->id_prod;?>">visibility</a></td>
-                  <td><a href="" class="material-icons" data-bs-toggle="modal" data-bs-target="#edit<?php echo $obj->id_prod;?>">edit</a></td>
-                  <td><a href="" class="material-icons">delete</a></td>
+                  <tr>
+                    <th><?php echo $obj->id_prod; ?></th>
+                    <th><?php echo $obj->nome_prod; ?></th>
+                    <td><?php echo $obj->qtd_prod; ?></td>
+                    <td><a href="" class="material-icons" data-bs-toggle="modal" data-bs-target="#visibility<?php echo $obj->id_prod;?>">visibility</a></td>
+                    <td><a href="" class="material-icons" data-bs-toggle="modal" data-bs-target="#edit<?php echo $obj->id_prod;?>">edit</a></td>
+                    <td><a href="" class="material-icons" data-bs-toggle="modal" data-bs-target="#delete<?php echo $obj->id_prod; ?>">delete</a></td>
+                  </tr>
 <!-- Modal Visualização -->
-<div class="modal fade" id="visibility<?php echo $obj->id_prod;?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="visiprodLabel" aria-hidden="true">
+<div class="modal fade" id="visibility<?php echo $obj->id_prod;?>" tabindex="-1" aria-labelledby="visiprodLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -39,7 +41,7 @@ include '../db/conn.php';
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="cad_prod/cad.php" method="post">
+        <form action="#" method="post">
           <div class="row">
             <div class="col">
               <label for="nome_prod">Nome do Produto</label>
@@ -80,6 +82,7 @@ include '../db/conn.php';
       </div>
       <div class="modal-body">
         <form action="cad_prod/edit.php" method="post">
+          <input type="text" class="form-control" name="id" id="id" value="<?php echo $obj->id_prod; ?>" hidden>
           <div class="row">
             <div class="col">
               <label for="nome_prod">Nome do Produto</label>
@@ -106,10 +109,26 @@ include '../db/conn.php';
             </div>
           </div>
           <div class="modal-footer">
-            <button type="reset" class="btn btn-secondary">Limpar</button>
             <button type="submit" class="btn btn-primary">Salvar</button>
           </div>
         </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal Excluir Usuário -->
+<div class="modal fade" id="delete<?php echo $obj->id_prod; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Excluir Usuário</h5>
+      </div>
+      <div class="modal-body">
+        <h3>Deseja realmente excluir esse pobre coitado chamado <?php echo $obj->nome_prod; ?>?</h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success material-icons" data-bs-dismiss="modal">close</button>
+        <a href="cad_prod/delete.php?id=<?php echo $obj->id_prod; ?>" class="btn btn-danger material-icons">done</a>
       </div>
     </div>
   </div>
