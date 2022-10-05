@@ -20,11 +20,11 @@ if ($row > 0) {
           <?php
             if (isset($user['user_image'])){
               ?>
-                <img src="cad_perfil/images/<?php echo $user['user_image'];?>" class="img-thumbnail">
+                <img src="cad_perfil/images/<?php echo $user['user_image'];?>" class="img-thumbnail" id="preview">
               <?php
             }else{
               ?>
-                <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="img-thumbnail">
+                <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="img-thumbnail" id="preview" alt="avatar" />
               <?php
             }
           ?>
@@ -67,7 +67,7 @@ if ($row > 0) {
     </div>
     <div class="col">
       <div class="row">
-        <form action="" class="form-control">
+        <form action="cad_perfil/edit.php" method="post" class="form-control" enctype="multipart/form-data">
           <div class="mb-3 row">
             <div class="col">
               <label for="userName">User Name</label>
@@ -75,23 +75,23 @@ if ($row > 0) {
             </div>
             <div class="col">
               <label for="userName">E-Mail</label>
-              <input type="text" class="form-control" name="user" id="userName" value="<?php echo $user['email'];?>">
+              <input type="text" class="form-control" name="email" id="userName" value="<?php echo $user['email'];?>">
             </div>
           </div>
           <div class="mb-3 row">
             <div class="col">
               <label for="img">Profile Photo</label>
-              <input type="file" class="form-control" name="userImg" id="img">
+              <input type="file" class="form-control" name="userImg" id="img" onchange="getImagePreview(event)">
             </div>
           </div>
           <div class="mb-3 row">
             <div class="col">
-              <label for="pass1">Password</label>
+              <label for="pass1">Password <span style="color: red;">*</span> </label>
               <input type="password" name="pass1" id="pass1" class="form-control"  required>
             </div>
             <div class="col">
               <label for="pass2">Confirm Password</label>
-              <input type="password" name="pass2" id="pass2" class="form-control" required>
+              <input type="password" name="pass2" id="pass2" class="form-control">
             </div>
           </div>
           <div class="mb-3 row">
@@ -106,3 +106,14 @@ if ($row > 0) {
 </div>
   <?php
 }
+?>
+<script>
+  function getImagePreview(event) {
+    var image = URL.createObjectURL(event.target.files[0]);
+    var imageDiv = document.getElementById('preview');
+    //var newImage = document.createElement('img');
+    imageDiv.src = image;
+    //newImage.classList.add('img-thumbnail');
+    //imageDiv.appendChild(newImage);
+  }
+</script>
