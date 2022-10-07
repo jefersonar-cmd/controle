@@ -6,5 +6,5 @@ if ($delete) {
     header('Location: ../index.php?sub=prod');
     exit();
 }else{
-    printf("Error deleting: " . $delete->error);
+    printf("Error deleting: " . $delete->errno);
 }

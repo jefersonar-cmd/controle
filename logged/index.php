@@ -35,6 +35,7 @@ if (!empty($_SESSION['msg'])){
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                         <a class="nav-link active" aria-current="page" href="../logged/">Home</a>
+                        <a href="index.php?sub=vend" class="nav-link">Venda</a>
                         <?php
                             if ($acess == 1) {
                                 ?>
@@ -54,6 +55,9 @@ if (!empty($_SESSION['msg'])){
             <?php
             $page = @$_GET['sub'];
             switch ($page) {
+                case 'vend':
+                    echo 'aqui será venda';
+                    break;
                 case 'rel':
                     echo 'aqui será relatório';
                     break;

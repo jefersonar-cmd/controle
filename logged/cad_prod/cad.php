@@ -14,7 +14,7 @@ if(isset($_POST['nome_prod']) and isset($_POST['qtd'])) {
                 header('Location: ../index.php?sub=prod');
                 exit();
             }else{
-                printf('Erro ao inserir dados: '. $conn->error());
+                printf('Erro ao inserir dados: '. $conn->errno);
                 die();
             }
         }
@@ -24,7 +24,7 @@ if(isset($_POST['nome_prod']) and isset($_POST['qtd'])) {
             header('Location: ../index.php?sub=prod');
             exit();
         }else{
-            printf('Erro ao inserir dados: '. $conn->error());
+            printf('Erro ao inserir dados: '. $conn->errno);
             die();
         }
     }elseif(isset($obs)){
@@ -34,7 +34,7 @@ if(isset($_POST['nome_prod']) and isset($_POST['qtd'])) {
             header('Location: ../index.php?sub=prod');
             exit();
         }else{
-            printf('Erro ao inserir dados: '. $conn->error());
+            printf('Erro ao inserir dados: '. $conn->errno);
             die();
         }
     }else{
@@ -44,7 +44,7 @@ if(isset($_POST['nome_prod']) and isset($_POST['qtd'])) {
             header('Location: ../index.php?sub=prod');
             exit();
         }else{
-            printf('Erro ao inserir dados: '. $conn->error());
+            printf('Erro ao inserir dados: '. $conn->errno);
             die();
         }
     }

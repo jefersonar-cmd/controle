@@ -10,5 +10,5 @@ if($update){
     header("Location: ../index.php?sub=prod");
     exit();
 }else{
-    die("Error updating: %s\n". $update);
+    die("Error updating: %s\n". $conn->errno);
 }

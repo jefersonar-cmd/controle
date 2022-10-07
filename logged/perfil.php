@@ -80,7 +80,7 @@ if ($row > 0) {
           </div>
           <div class="mb-3 row">
             <div class="col">
-              <label for="img">Profile Photo</label>
+              <label for="img">Profile Photo (jpg)</label>
               <input type="file" class="form-control" name="userImg" id="img" onchange="getImagePreview(event)">
             </div>
           </div>
