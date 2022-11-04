@@ -25,7 +25,7 @@ if (!empty($_SESSION['msg'])){
     <link rel="stylesheet" href="basic.css">
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="container-flex">
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="../logged/">Controle 2.0</a>
@@ -51,12 +51,12 @@ if (!empty($_SESSION['msg'])){
                 </div>
             </div>
         </nav>
-        <div class="container-fluid">
+        <div class="container-flex">
             <?php
             $page = @$_GET['sub'];
             switch ($page) {
                 case 'vend':
-                    echo 'aqui será venda';
+                    require 'venda.php';
                     break;
                 case 'rel':
                     echo 'aqui será relatório';
